@@ -1,9 +1,12 @@
 body {
+  background: gray;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
   height: 100vh;
+  color: white;
+  font-weight: 800;
 
   .informations {
     border: 2px solid crimson;
