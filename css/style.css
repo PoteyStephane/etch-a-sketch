@@ -51,4 +51,23 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+body .informations {
+  border: 2px solid crimson;
+}
+body .grid-container {
+  border: 3px solid darkblue;
+  display: grid;
+  height: 600px;
+  width: 600px;
+}
+body .cell {
+  border: 1px solid crimson;
 }/*# sourceMappingURL=style.css.map */
