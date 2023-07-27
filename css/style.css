@@ -57,10 +57,39 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 15px;
   height: 100vh;
 }
 body .informations {
   border: 2px solid crimson;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+body .informations .btns .btn-content {
+  cursor: pointer;
+  border: 1px solid crimson;
+  padding: 5px 25px;
+}
+body .informations .btns .btn-content:not(:last-child) {
+  margin-right: 15px;
+  text-transform: capitalize;
+}
+body .informations .btns .btn-content:hover {
+  transform: scale(1.1);
+}
+body .informations .input-informations .color-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+body .informations .input-informations .color-content p {
+  text-transform: uppercase;
 }
 body .grid-container {
   border: 3px solid darkblue;

@@ -41,10 +41,10 @@ function createCells() {
   createBoard(rangeValue, rangeValue);
 }
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   inputRange.value = 2;
-//   createCells();
-// });
+document.addEventListener("DOMContentLoaded", () => {
+  inputRange.value = 2;
+  createCells();
+});
 
 btnClear.addEventListener("click", clearBoard);
 inputRange.addEventListener("input", createCells);

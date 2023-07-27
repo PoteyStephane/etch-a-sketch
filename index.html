@@ -13,15 +13,23 @@
     <div class="informations">
 
         <div class="btns">
-            <button id="btn-random-color">random color</button>
-            <button id="btn-clear">clear</button>
-            <button id="btn-erase">erase</button>
+            <button class="btn-content" id="btn-random-color">random color</button>
+            <button class="btn-content" id="btn-clear">clear</button>
+            <button class="btn-content" id="btn-rgb">RGB</button>
         </div>
 
-        <input type="color" name="" id="input-color">
 
-        <p class="cell-value"></p>
-        <input type="range" min="2" max="100" value="2" id="input-range">
+        <div class="input-informations">
+
+            <div class="color-content">
+                <p>choose your color</p>
+                <input type="color" name="" id="input-color">
+            </div>
+
+            <p class="cell-value"></p>
+            <input type="range" min="2" max="50" value="2" id="input-range">
+        </div>
+
     </div>
 
     <div class="grid-container"></div>
