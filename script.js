@@ -34,6 +34,12 @@ function handleRandomColorButtonClick() {
   useRandomColor = true;
 }
 
+function handleClearBtn() {
+  clearGrid();
+  createNewCell();
+  useRandomColor = false;
+}
+
 function clearGrid() {
   while (gridContainer.firstChild) {
     gridContainer.removeChild(gridContainer.firstChild);
@@ -72,12 +78,9 @@ function createNewCell() {
 function init() {
   inputColor.addEventListener("input", handleInputColorChange);
   btnRandomColor.addEventListener("click", handleRandomColorButtonClick);
-  createNewCell();
-  btnClear.addEventListener("click", () => {
-    clearGrid();
-    createNewCell();
-  });
+  btnClear.addEventListener("click", handleClearBtn);
   inputRange.addEventListener("input", createNewCell);
+  createNewCell();
 }
 
 init();
