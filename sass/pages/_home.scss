@@ -1,62 +1,55 @@
-body {
-  background: gray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  height: 100vh;
-  color: white;
-  font-weight: 800;
+@use "../abstracts/" as *;
 
-  .informations {
-    border: 2px solid crimson;
-    width: 600px;
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
+.main-content {
+  @include flexVertical(center);
+  flex-wrap: wrap;
+  text-transform: capitalize;
+  font-weight: bold;
+  .options {
+    @include flexHorizontal(center);
+    border: 2px solid darkblue;
+    gap: 2rem;
+    margin-bottom: 15px;
 
-    .btns {
-      .btn-content {
-        cursor: pointer;
-        border: 1px solid crimson;
-        padding: 5px 25px;
-
-        &:not(:last-child) {
-          margin-right: 15px;
-          text-transform: capitalize;
-        }
+    .btns-container {
+      margin-right: 20px;
+      button {
+        background: crimson;
+        text-align: center;
+        color: white;
+        width: 100%;
+        height: 30px;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
+        margin: 15px 25px;
+        transition: all 0.2s ease-in-out;
 
         &:hover {
-          transform: scale(1.1);
+          cursor: pointer;
+          transform: scale(1.02);
         }
       }
     }
 
-    .input-informations {
-      .color-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-
-        p {
-          text-transform: uppercase;
+    .input-container {
+      .color-picker-container {
+        margin: 0 15px 15px 0;
+        input[type="color"] {
+          vertical-align: middle;
+          margin-left: 15px;
         }
       }
     }
   }
 
   .grid-container {
-    border: 3px solid darkblue;
+    border: 2px solid crimson;
     display: grid;
     height: 600px;
     width: 600px;
   }
 
   .cell {
-    border: 1px solid crimson;
+    border: 2px solid crimson;
   }
 }

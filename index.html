@@ -9,30 +9,35 @@
 </head>
 
 <body>
-
-    <div class="informations">
-
-        <div class="btns">
-            <button class="btn-content" id="btn-random-color">random color</button>
-            <button class="btn-content" id="btn-clear">clear</button>
-            <button class="btn-content" id="btn-rgb">RGB</button>
+    <div class="container">
+        <div class="title">
+            <h1>etch a sketch</h1>
         </div>
 
 
-        <div class="input-informations">
+        <div class="main-content">
+            <div class="options">
+                <div class="btns-container">
+                    <button id="btn-clear">clear grid</button>
+                    <button id="btn-random-color">random color</button>
+                </div>
 
-            <div class="color-content">
-                <p>choose your color</p>
-                <input type="color" name="" id="input-color">
+
+                <div class="input-container">
+                    <div class="color-picker-container">
+                        <label for="color-picker">color picker</label>
+                        <input type="color" name="color-picker" id="input-color">
+                    </div>
+
+
+                    <p id="number-grid">0</p>
+                    <input type="range" min="2" max="25" value="2" name="" id="input-slider">
+                </div>
             </div>
-
-            <p class="cell-value"></p>
-            <input type="range" min="2" max="50" value="2" id="input-range">
+            <div class="grid-container"></div>
         </div>
-
     </div>
 
-    <div class="grid-container"></div>
     <script src="script.js"></script>
 </body>
 

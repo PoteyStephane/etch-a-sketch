@@ -4,6 +4,41 @@
   justify-content: center;
 }
 
+@mixin flexHorizontal($disposition) {
+  @if $disposition == center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } @else if $disposition == between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  } @else if $disposition == around {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
+@mixin flexVertical($disposition) {
+  @if $disposition == center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  } @else if $disposition == between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  } @else if $disposition == around {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+}
+
 @mixin grid-center() {
   display: grid;
   place-items: center;

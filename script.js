@@ -1,50 +1,81 @@
-const btnRandomColor = document.getElementById("btn-random-color");
-const btnClear = document.getElementById("btn-clear");
-const btnErase = document.getElementById("btn-rbg");
-const inputRange = document.getElementById("input-range");
-const inputColor = document.getElementById("input-color");
-const txtCellValue = document.querySelector(".cell-value");
 const gridContainer = document.querySelector(".grid-container");
-const cells = document.querySelectorAll(".cell");
+const btnClear = document.getElementById("btn-clear");
+const btnRandomColor = document.getElementById("btn-random-color");
+const inputRange = document.getElementById("input-slider");
+const inputColor = document.getElementById("input-color");
+const txtGridNumber = document.getElementById("number-grid");
+
+let currentColor = inputColor.value;
+let useRandomColor = false;
 
 function getRangeValue() {
-  let value = inputRange.value;
-  return value;
+  let rangeValue = inputRange.value;
+  return rangeValue;
 }
 
-function giveBoardStyle(col, row) {
+function getRandomColor() {
+  let r = Math.floor(Math.random() * 255);
+  let g = Math.floor(Math.random() * 255);
+  let b = Math.floor(Math.random() * 255);
+
+  let color = `rgb(${r}, ${g}, ${b})`;
+
+  return color;
+}
+
+function setGridStyle(col, row) {
   gridContainer.style.gridTemplateColumns = `repeat(${col}, 1fr)`;
   gridContainer.style.gridTemplateRows = `repeat(${row}, 1fr)`;
 }
 
-function clearBoard() {
+inputColor.addEventListener("input", () => {
+  currentColor = inputColor.value;
+  useRandomColor = false;
+});
+
+btnRandomColor.addEventListener("click", () => {
+  useRandomColor = true;
+});
+
+function clearGrid() {
   while (gridContainer.firstChild) {
     gridContainer.removeChild(gridContainer.firstChild);
   }
 }
 
 function createBoard(col, row) {
-  let totalCells = col * row;
-  giveBoardStyle(col, row);
+  let cellAmount = col * row;
+  setGridStyle(col, row);
 
-  for (let i = 0; i < totalCells; i++) {
-    const cell = document.createElement("div");
-    cell.classList.add("cell");
-    gridContainer.appendChild(cell);
+  for (let i = 0; i < cellAmount; i++) {
+    createCell(gridContainer);
   }
 }
 
-function createCells() {
-  let rangeValue = getRangeValue();
-  txtCellValue.textContent = rangeValue;
-  clearBoard();
-  createBoard(rangeValue, rangeValue);
+function createCell(container) {
+  let div = document.createElement("div");
+  div.addEventListener("mouseover", () => {
+    if (useRandomColor) {
+      div.style.background = getRandomColor();
+    } else {
+      div.style.background = currentColor;
+    }
+  });
+  div.classList.add("cell");
+  container.appendChild(div);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  inputRange.value = 2;
-  createCells();
-});
+function createNewCell() {
+  let value = getRangeValue();
+  txtGridNumber.textContent = value;
+  clearGrid();
+  createBoard(value, value);
+}
 
-btnClear.addEventListener("click", clearBoard);
-inputRange.addEventListener("input", createCells);
+createNewCell();
+
+btnClear.addEventListener("click", () => {
+  clearGrid();
+  createNewCell();
+});
+inputRange.addEventListener("input", createNewCell);
