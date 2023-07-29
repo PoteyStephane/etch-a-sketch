@@ -1,55 +1,60 @@
 @use "../abstracts/" as *;
 
-.main-content {
-  @include flexVertical(center);
-  flex-wrap: wrap;
-  text-transform: capitalize;
-  font-weight: bold;
-  .options {
-    @include flexHorizontal(center);
-    border: 2px solid darkblue;
-    gap: 2rem;
-    margin-bottom: 15px;
+.container {
+  h1 {
+    text-align: center;
+  }
+  .main-content {
+    @include flexVertical(center);
+    flex-wrap: wrap;
+    text-transform: capitalize;
+    font-weight: bold;
+    .options {
+      @include flexHorizontal(center);
+      border: 2px solid darkblue;
+      gap: 2rem;
+      margin-bottom: 15px;
 
-    .btns-container {
-      margin-right: 20px;
-      button {
-        background: crimson;
-        text-align: center;
-        color: white;
-        width: 100%;
-        height: 30px;
-        border-radius: 10px;
-        box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
-        margin: 15px 25px;
-        transition: all 0.2s ease-in-out;
+      .btns-container {
+        margin-right: 20px;
+        button {
+          background: crimson;
+          text-align: center;
+          color: white;
+          width: 100%;
+          height: 30px;
+          border-radius: 10px;
+          box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
+          margin: 15px 25px;
+          transition: all 0.2s ease-in-out;
 
-        &:hover {
-          cursor: pointer;
-          transform: scale(1.02);
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.02);
+          }
+        }
+      }
+
+      .input-container {
+        .color-picker-container {
+          margin: 0 15px 15px 0;
+          input[type="color"] {
+            vertical-align: middle;
+            margin-left: 15px;
+          }
         }
       }
     }
 
-    .input-container {
-      .color-picker-container {
-        margin: 0 15px 15px 0;
-        input[type="color"] {
-          vertical-align: middle;
-          margin-left: 15px;
-        }
-      }
+    .grid-container {
+      border: 2px solid crimson;
+      display: grid;
+      height: 600px;
+      width: 600px;
     }
-  }
 
-  .grid-container {
-    border: 2px solid crimson;
-    display: grid;
-    height: 600px;
-    width: 600px;
-  }
-
-  .cell {
-    border: 2px solid crimson;
+    .cell {
+      border: 2px solid crimson;
+    }
   }
 }

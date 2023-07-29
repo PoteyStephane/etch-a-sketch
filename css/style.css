@@ -53,7 +53,10 @@ h6 {
   overflow-wrap: break-word;
 }
 
-.main-content {
+.container h1 {
+  text-align: center;
+}
+.container .main-content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,7 +65,7 @@ h6 {
   text-transform: capitalize;
   font-weight: bold;
 }
-.main-content .options {
+.container .main-content .options {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,10 +73,10 @@ h6 {
   gap: 2rem;
   margin-bottom: 15px;
 }
-.main-content .options .btns-container {
+.container .main-content .options .btns-container {
   margin-right: 20px;
 }
-.main-content .options .btns-container button {
+.container .main-content .options .btns-container button {
   background: crimson;
   text-align: center;
   color: white;
@@ -84,23 +87,23 @@ h6 {
   margin: 15px 25px;
   transition: all 0.2s ease-in-out;
 }
-.main-content .options .btns-container button:hover {
+.container .main-content .options .btns-container button:hover {
   cursor: pointer;
   transform: scale(1.02);
 }
-.main-content .options .input-container .color-picker-container {
+.container .main-content .options .input-container .color-picker-container {
   margin: 0 15px 15px 0;
 }
-.main-content .options .input-container .color-picker-container input[type=color] {
+.container .main-content .options .input-container .color-picker-container input[type=color] {
   vertical-align: middle;
   margin-left: 15px;
 }
-.main-content .grid-container {
+.container .main-content .grid-container {
   border: 2px solid crimson;
   display: grid;
   height: 600px;
   width: 600px;
 }
-.main-content .cell {
+.container .main-content .cell {
   border: 2px solid crimson;
 }/*# sourceMappingURL=style.css.map */

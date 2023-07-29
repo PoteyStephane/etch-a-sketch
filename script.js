@@ -9,8 +9,7 @@ let currentColor = inputColor.value;
 let useRandomColor = false;
 
 function getRangeValue() {
-  let rangeValue = inputRange.value;
-  return rangeValue;
+  return inputRange.value;
 }
 
 function getRandomColor() {
@@ -18,9 +17,7 @@ function getRandomColor() {
   let g = Math.floor(Math.random() * 255);
   let b = Math.floor(Math.random() * 255);
 
-  let color = `rgb(${r}, ${g}, ${b})`;
-
-  return color;
+  return `rgb(${r}, ${g}, ${b})`;
 }
 
 function setGridStyle(col, row) {
@@ -28,14 +25,14 @@ function setGridStyle(col, row) {
   gridContainer.style.gridTemplateRows = `repeat(${row}, 1fr)`;
 }
 
-inputColor.addEventListener("input", () => {
+function handleInputColorChange() {
   currentColor = inputColor.value;
   useRandomColor = false;
-});
+}
 
-btnRandomColor.addEventListener("click", () => {
+function handleRandomColorButtonClick() {
   useRandomColor = true;
-});
+}
 
 function clearGrid() {
   while (gridContainer.firstChild) {
@@ -72,10 +69,15 @@ function createNewCell() {
   createBoard(value, value);
 }
 
-createNewCell();
-
-btnClear.addEventListener("click", () => {
-  clearGrid();
+function init() {
+  inputColor.addEventListener("input", handleInputColorChange);
+  btnRandomColor.addEventListener("click", handleRandomColorButtonClick);
   createNewCell();
-});
-inputRange.addEventListener("input", createNewCell);
+  btnClear.addEventListener("click", () => {
+    clearGrid();
+    createNewCell();
+  });
+  inputRange.addEventListener("input", createNewCell);
+}
+
+init();
